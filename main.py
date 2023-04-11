@@ -7,6 +7,7 @@ import sys
 import random
 from fifo import FIFO
 from lru import LRU
+from opt import Optimal
 
 REFERENCE_STR_SIZE = 12
 PAGE_NUM_RANGE = (0, 9)
@@ -24,11 +25,20 @@ class Main:
         # run fifo
         fifo = FIFO(self.size, self.page)
         fifo.run()
-        print("FIFO: ", fifo.page_fault, fifo.page_hit)
+        print(f'FIFO: {fifo.page_fault} page faults, {fifo.page_hit} page hits')
 
+        # run lru
         lru = LRU(self.size, self.page)
         lru.run()
-        print("LRU: ", lru.page_fault, lru.page_hit)
+        print(f'LRU: {lru.page_fault} page faults, {lru.page_hit} page hits')
+      
+
+        # run optimal
+        opt = Optimal(self.size, self.page)
+        opt.run()
+        print(f'Optimal: {opt.page_fault} page faults, {opt.page_hit} page hits')
+      
+
 
 
 
@@ -41,9 +51,14 @@ if __name__ == "__main__":
     # parse command
 
     # create a main object
-    test_string = "701203042303120"
+    # test_string = "701203042303120"
+    # test_string = "701203042303212017"
+    # test_string = "130356"
+    # test_string = "02164010312"
+    # test_string = "7012030423032"
+    test_string = "7012030423032"
     # main = Main(num_page_frames, generate_page_ref_string())
-    main = Main(3, test_string)
+    main = Main(4, test_string)
     main.run_algorithms()
 
     # command = sys.argv
