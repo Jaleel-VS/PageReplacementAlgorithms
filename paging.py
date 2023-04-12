@@ -6,9 +6,10 @@ page replacement algorithms
 import sys
 import random
 
-REFERENCE_STR_SIZE = 12
+REFERENCE_STR_SIZE = 38
 PAGE_NUM_RANGE = (0, 9)
 MAX_PAGE_FRAMES = 7
+
 
 class Paging:
     def __init__(self, frame_size, page_list):
@@ -23,7 +24,6 @@ class Paging:
         self.page_fault = 0
         self.page_hit = 0
 
-
     def run_algorithms(self):
         # run fifo
         self.fifo()
@@ -32,14 +32,16 @@ class Paging:
         # run lru
         self.lru()
         print(f'LRU: {self.page_fault} page faults, {self.page_hit} page hits')
-      
 
         # run optimal
         self.opt()
-        print(f'Optimal: {self.page_fault} page faults, {self.page_hit} page hits')
-    
+        print(
+            f'Optimal: {self.page_fault} page faults, {self.page_hit} page hits')
+
     # FIFO
     def fifo(self):
+        self.clear_cache()
+        
         for page in self.page_list:
             if page in self.frame:
                 self.page_hit += 1
@@ -47,9 +49,11 @@ class Paging:
                 self.page_fault += 1
                 self.frame.pop(0)
                 self.frame.append(page)
-    
+
     # LEAST RECENTLY USED
     def lru(self):
+        self.clear_cache()
+
         for i in range(len(self.page_list)):
             page = self.page_list[i]
             if page in self.frame:
@@ -66,7 +70,7 @@ class Paging:
         # find the least recently used page
         lru_val = -1
         checked = []
-        for i in range(page_index -1, -1, -1):
+        for i in range(page_index - 1, -1, -1):
             if self.page_list[i] in self.frame:
                 if self.page_list[i] not in checked:
                     lru_val = self.page_list[i]
@@ -78,6 +82,8 @@ class Paging:
 
     # OPTIMAL
     def opt(self):
+        self.clear_cache()
+
         for i in range(len(self.page_list)):
             page = self.page_list[i]
             if page in self.frame:
@@ -106,10 +112,13 @@ class Paging:
 
         return opt_val
 
+
 def generate_page_ref_string():
-        # generate a string based on the range
-        ref_str = [random.randint(PAGE_NUM_RANGE[0], PAGE_NUM_RANGE[1] + 1) for i in range(REFERENCE_STR_SIZE)]
-        return ref_str
+    # generate a string based on the range
+    ref_str = [random.randint(PAGE_NUM_RANGE[0], PAGE_NUM_RANGE[1] + 1)
+               for i in range(REFERENCE_STR_SIZE)]
+    return ref_str
+
 
 if __name__ == "__main__":
 
@@ -121,12 +130,13 @@ if __name__ == "__main__":
     try:
         num_pages = int(command[1])
 
-        if num_pages >= 1 and num_pages <= MAX_PAGE_FRAMES:
-            paging_algorithms = Paging(num_pages, generate_page_ref_string())
-            paging_algorithms.run_algorithms()
-
-        else:
-            print("Usage: please specify a number between 1 and 7")
-    
     except ValueError:
         print("Usage: please specify a valid integer")
+        sys.exit()
+
+    if num_pages >= 1 and num_pages <= MAX_PAGE_FRAMES:
+        paging_algorithms = Paging(num_pages, generate_page_ref_string())
+        paging_algorithms.run_algorithms()
+
+    else:
+        print("Usage: please specify a number between 1 and 7")
