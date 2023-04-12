@@ -1,0 +1,112 @@
+REFERENCE STRING SIZE: 12
+  FRAME SIZE: 2
+   Fault ratio
+    FIFO: 0.67
+    LRU: 0.67
+    OPT: 0.5
+  FRAME SIZE: 5
+   Fault ratio
+    FIFO: 0.83
+    LRU: 0.75
+    OPT: 0.67
+  FRAME SIZE: 7
+   Fault ratio
+    FIFO: 0.67
+    LRU: 0.67
+    OPT: 0.67
+REFERENCE STRING SIZE: 164
+  FRAME SIZE: 2
+   Fault ratio
+    FIFO: 0.8
+    LRU: 0.79
+    OPT: 0.62
+  FRAME SIZE: 5
+   Fault ratio
+    FIFO: 0.52
+    LRU: 0.51
+    OPT: 0.31
+  FRAME SIZE: 7
+   Fault ratio
+    FIFO: 0.37
+    LRU: 0.41
+    OPT: 0.23
+REFERENCE STRING SIZE: 344
+  FRAME SIZE: 2
+   Fault ratio
+    FIFO: 0.82
+    LRU: 0.82
+    OPT: 0.65
+  FRAME SIZE: 5
+   Fault ratio
+    FIFO: 0.52
+    LRU: 0.53
+    OPT: 0.3
+  FRAME SIZE: 7
+   Fault ratio
+    FIFO: 0.37
+    LRU: 0.35
+    OPT: 0.17
+REFERENCE STRING SIZE: 524
+  FRAME SIZE: 2
+   Fault ratio
+    FIFO: 0.84
+    LRU: 0.84
+    OPT: 0.68
+  FRAME SIZE: 5
+   Fault ratio
+    FIFO: 0.59
+    LRU: 0.6
+    OPT: 0.32
+  FRAME SIZE: 7
+   Fault ratio
+    FIFO: 0.35
+    LRU: 0.36
+    OPT: 0.17
+REFERENCE STRING SIZE: 704
+  FRAME SIZE: 2
+   Fault ratio
+    FIFO: 0.83
+    LRU: 0.83
+    OPT: 0.68
+  FRAME SIZE: 5
+   Fault ratio
+    FIFO: 0.55
+    LRU: 0.57
+    OPT: 0.32
+  FRAME SIZE: 7
+   Fault ratio
+    FIFO: 0.36
+    LRU: 0.37
+    OPT: 0.18
+REFERENCE STRING SIZE: 884
+  FRAME SIZE: 2
+   Fault ratio
+    FIFO: 0.82
+    LRU: 0.82
+    OPT: 0.67
+  FRAME SIZE: 5
+   Fault ratio
+    FIFO: 0.57
+    LRU: 0.56
+    OPT: 0.32
+  FRAME SIZE: 7
+   Fault ratio
+    FIFO: 0.36
+    LRU: 0.36
+    OPT: 0.17
+REFERENCE STRING SIZE: 1064
+  FRAME SIZE: 2
+   Fault ratio
+    FIFO: 0.84
+    LRU: 0.84
+    OPT: 0.67
+  FRAME SIZE: 5
+   Fault ratio
+    FIFO: 0.56
+    LRU: 0.57
+    OPT: 0.33
+  FRAME SIZE: 7
+   Fault ratio
+    FIFO: 0.39
+    LRU: 0.4
+    OPT: 0.18

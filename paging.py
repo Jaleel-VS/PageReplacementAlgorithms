@@ -113,30 +113,47 @@ class Paging:
         return opt_val
 
 
-def generate_page_ref_string():
+def generate_page_ref_string(ref_str_size=REFERENCE_STR_SIZE):
     # generate a string based on the range
     ref_str = [random.randint(PAGE_NUM_RANGE[0], PAGE_NUM_RANGE[1] + 1)
-               for i in range(REFERENCE_STR_SIZE)]
+               for i in range(ref_str_size)]
     return ref_str
 
+def run_paging(n_pages, ref_str_size):
+    # run the paging algorithms
+    paging_algorithms = Paging(n_pages, generate_page_ref_string(ref_str_size))
+    paging_algorithms.run_algorithms()
 
 if __name__ == "__main__":
 
     command = sys.argv
 
-    if len(command) != 2:
+    if len(command) not in (2, 3):
         print("Usage: python paging.py [number of page frames]")
-
-    try:
-        num_pages = int(command[1])
-
-    except ValueError:
-        print("Usage: please specify a valid integer")
         sys.exit()
+    
+    elif len(command) == 2:
+        try:
+            num_pages = int(command[1])
 
-    if num_pages >= 1 and num_pages <= MAX_PAGE_FRAMES:
-        paging_algorithms = Paging(num_pages, generate_page_ref_string())
-        paging_algorithms.run_algorithms()
+        except ValueError:
+            print("Usage: please specify a valid integer")
+            sys.exit()
 
+        if num_pages >= 1 and num_pages <= MAX_PAGE_FRAMES:
+            run_paging(num_pages, REFERENCE_STR_SIZE)
+
+        else:
+            print("Usage: please specify a number between 1 and 7")
+
+    # FOR TESTING, TO GENERATE RESULTS FOR DIFFERENT REFERENCE STRING SIZES AND FRAME SIZES
     else:
-        print("Usage: please specify a number between 1 and 7")
+        try:
+            num_pages = int(command[1])
+            ref_str_size = int(command[2])
+
+            run_paging(num_pages, ref_str_size)
+        
+        except ValueError:
+            print("Usage: please specify a valid integer")
+            sys.exit()

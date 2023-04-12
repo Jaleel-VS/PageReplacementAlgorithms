@@ -1,0 +1,3 @@
+FIFO: 415 page faults, 649 page hits
+LRU: 422 page faults, 642 page hits
+Optimal: 195 page faults, 869 page hits
