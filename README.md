@@ -16,7 +16,8 @@ NB: Pages should be in the range [1, 7] inclusive
 (from project directory)
 `python testing/test.py`
 
-values for constants can be changed here
+values for constants can be changed here in the `test.py` file
+
 ```python
 REF_STR_SIZES = (12, 164, 344, 524, 704, 884, 1064)
 FRAME_SIZES = (2, 5, 7)
